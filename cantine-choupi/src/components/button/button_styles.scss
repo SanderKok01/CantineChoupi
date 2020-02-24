@@ -1,0 +1,17 @@
+@import "../../styles/_vars.scss";
+
+$colors: (
+  white: $white,
+  black: $black,
+  red: #ff0000
+);
+
+@each $name, $value in $colors {
+  .button_#{$name} {
+    padding: 10px 20px;
+
+    &_text {
+      color: #{$value};
+    }
+  }
+}
