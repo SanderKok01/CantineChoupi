@@ -1,0 +1,21 @@
+@import "../../styles/_colors.scss";
+@import "../../styles/_fonts.scss";
+
+.intro {
+  height: 100vh;
+  background-image: url("../../images/landing/background.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+  &__title {
+    color: transparent;
+    -webkit-text-stroke: 1px #ffffff;
+    font-size: 9rem;
+    margin: 0;
+    position: relative;
+    top: 35%;
+    left: 5%;
+    font-family: $font__kalam;
+    width: fit-content;
+  }
+}

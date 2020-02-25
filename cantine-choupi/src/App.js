@@ -1,10 +1,12 @@
 import React from 'react';
-import Button from './components/button/button';
+import "./App_styles.scss";
+
+import Landing from './pages/landing/landing';
 
 function App() {
   return (
     <div className="App">
-      <Button>Hallo</Button>
+      <Landing />
     </div>
   );
 }
