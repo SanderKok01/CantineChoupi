@@ -1,3 +1,9 @@
 $white: #ffffff;
 $black: #000000;
 $shadow: #333;
+
+:export {
+  white: $white;
+  black: $black;
+  shadow: $shadow;
+}

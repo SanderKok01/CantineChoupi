@@ -1,6 +1,4 @@
-@import "../../styles/_colors.scss";
-@import "../../styles/_fonts.scss";
-@import "../../styles/_animations.scss";
+@import "../../styles/_main.scss";
 
 .intro {
   height: 100vh;
@@ -28,13 +26,11 @@
   }
 
   &__icon {
-    margin: 0 auto;
+    @include icon();
+
     color: $white;
-    font-size: 4rem;
-    display: block;
     position: relative;
     margin-top: 67.5vh;
-    animation: MoveUpDown 2s ease-in-out infinite;
   }
 }
 
@@ -43,12 +39,10 @@
   display: flex;
 
   &__title {
-    font-size: 4rem;
-    font-family: $font__Handlee;
-    display: block;
+    @include title();
+
     position: relative;
     left: 12%;
-    text-decoration: overline underline;
   }
 
   &__link {
@@ -59,6 +53,14 @@
   &__all-products {
     font-size: 1.5rem;
     font-family: $font__Handlee;
+  }
+
+  &__icon {
+    @include icon();
+
+    color: $black;
+    position: relative;
+    margin-top: -7.5vh;
   }
 }
 
@@ -136,5 +138,43 @@
       color: $white;
       font-size: 1.5rem;
     }
+  }
+}
+
+.about-us {
+  height: 100vh;
+
+  &__title {
+    @include title();
+
+    text-align: center;
+    position: relative;
+    top: 50px;
+  }
+
+  &__description {
+    max-width: 25%;
+    text-align: justify;
+    position: relative;
+    top: 50px;
+    margin: 0 auto;
+    display: inline-block;
+
+    &-wrapper {
+      margin: 0 auto;
+      display: flex;
+    }
+
+    &--long {
+      margin: 0 5%;
+    }
+  }
+
+  &__icon {
+    @include icon();
+
+    color: $black;
+    position: relative;
+    margin-top: -7.5vh;
   }
 }

@@ -6,3 +6,9 @@ $font__Kalam: 'Kalam';
 
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
 $font__Indie_Flower: 'Indie Flower';
+
+:export {
+  Handlee: $font__Handlee;
+  Kalam: $font__Kalam;
+  Indie_Flower: $font__Indie_Flower;
+}
