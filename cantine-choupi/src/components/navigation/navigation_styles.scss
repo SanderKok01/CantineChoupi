@@ -1,0 +1,83 @@
+@import "../../styles/_main.scss";
+
+.container {
+  position: fixed;
+  right: 0;
+  top: 45px;
+  z-index: 99;
+}
+
+.nav {
+    height: $nav__height;
+    background: $nav__background;
+    position: fixed;
+    width: 100vw;
+    z-index: 100;
+
+    &__brand {
+    position: absolute;
+    padding-left: 20px;
+    float: left;
+    line-height: $nav__height;
+    text-transform: uppercase;
+    font-size: 1.4em;
+
+        &-link,
+        &-link:visited {
+            color: $nav__font_color;
+            text-decoration: none;
+        }
+    }
+
+    &__dropdown {
+        position: absolute;
+        display: none;
+        z-index: 1;
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    &__items {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        float: right;
+    }
+
+    &__item {
+        float: left;
+        position: relative;
+
+        &--right {
+          padding-right: 20px;
+        }
+
+            &-link,
+            &-link:visited {
+                display: block;
+                padding: 0 20px;
+                line-height: $nav__height;
+                background: $nav__background;
+                color: $nav__font_color;
+                text-decoration: none;
+
+                &:hover {
+                    background: $nav__link_hover_color;
+                    color: $nav__font_color;
+                }
+
+                &:not(:only-child):after {
+                    padding-left: 4px;
+                    content: ' ▾';
+                }
+            }
+
+            ul li {
+                min-width: 190px;
+    
+                a {
+                    padding: 15px;
+                    line-height: 20px;
+                }
+            }
+    }
+}

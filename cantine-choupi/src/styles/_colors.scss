@@ -2,6 +2,15 @@ $white: #ffffff;
 $black: #000000;
 $shadow: #333;
 
+// Navigation Colors
+$nav__background: #262626;
+$nav__font_color: #ffffff;
+$nav__link_hover_color: #2581DC;
+
+// Shopping cart
+$nav__primary: #6394F8;
+$nav__light: #ABB0BE;
+
 :export {
   white: $white;
   black: $black;
