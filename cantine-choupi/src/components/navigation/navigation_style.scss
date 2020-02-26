@@ -13,61 +13,58 @@
     text-transform: uppercase;
     font-size: 1.4em;
 
-    a,
-    a:visited {
-      color: $nav-font-color;
-      text-decoration: none;
+        &-link,
+        &-link:visited {
+            color: $nav-font-color;
+            text-decoration: none;
+        }
     }
+
+    &__dropdown {
+        position: absolute;
+        display: none;
+        z-index: 1;
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
     }
     
-    &--right {
-        float: right;
-
-        ul {
+    &__items {
         list-style: none;
         margin: 0;
         padding: 0;
+        float: right;
+    }
 
-        li {
-            float: left;
-            position: relative;
+    &__item {
+        float: left;
+        position: relative;
 
-            a,
-            a:visited {
-            display: block;
-            padding: 0 20px;
-            line-height: $nav-height;
-            background: $nav-background;
-            color: $nav-font-color;
-            text-decoration: none;
-
-            &:hover {
-                background: $link-hover-color;
+            &-link,
+            &-link:visited {
+                display: block;
+                padding: 0 20px;
+                line-height: $nav-height;
+                background: $nav-background;
                 color: $nav-font-color;
-            }
+                text-decoration: none;
 
-            &:not(:only-child):after {
-                padding-left: 4px;
-                content: ' ▾';
-            }
+                &:hover {
+                    background: $link-hover-color;
+                    color: $nav-font-color;
+                }
+
+                &:not(:only-child):after {
+                    padding-left: 4px;
+                    content: ' ▾';
+                }
             }
 
             ul li {
-            min-width: 190px;
-
-            a {
-                padding: 15px;
-                line-height: 20px;
+                min-width: 190px;
+    
+                a {
+                    padding: 15px;
+                    line-height: 20px;
+                }
             }
-            }
-        }
-        }
     }
-}
-
-.nav-dropdown {
-    position: absolute;
-    display: none;
-    z-index: 1;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
 }

@@ -7,38 +7,38 @@ class Navigation extends React.Component {
         return (
             <React.Fragment>
                 <section className="nav">
-                        <div class="nav__brand">
-                            <a href="#!">Logo</a>
+                        <div className="nav__brand">
+                            <a className="nav__brand-link" href="#">Logo</a>
                         </div>
                         <div className="nav--right">
-                        <ul class="nav-list">
-                            <li>
-                                <a href="#!">Home</a>
-                            </li>
-                            <li>
-                                <a href="#!">About</a>
-                            </li>
-                            <li>
-                                <a href="#!">Services</a>
-                                <ul class="nav-dropdown">
-                                    <li>
-                                        <a href="#!">Web Design</a>
-                                    </li>
-                                    <li>
-                                        <a href="#!">Web Development</a>
-                                    </li>
-                                    <li>
-                                        <a href="#!">Graphic Design</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#!">Contact</a>
-                            </li>
-                            <li>
-                                <a href="#" id="cart"><i class="fa fa-shopping-cart"></i> Cart <span class="badge">3</span></a>
-                            </li>
-                        </ul>
+                            <ul className="nav__items">
+                                <li className="nav__item">
+                                    <a className="nav__item-link" href="#">Home</a>
+                                </li>
+                                <li className="nav__item">
+                                    <a className="nav__item-link" href="#">About</a>
+                                </li>
+                                <li className="nav__item">
+                                    <a className="nav__item-link" href="#">Categories</a>
+                                    <ul className="nav__dropdown">
+                                        <li>
+                                            <a href="#">Web Design</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Web Development</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Graphic Design</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li className="nav__item">
+                                    <a className="nav__item-link" href="#">Contact</a>
+                                </li>
+                                <li className="nav__item">
+                                    <a className="nav__item-link" href="#" id="cart"><i className="fa fa-shopping-cart"></i> Cart <span class="badge">3</span></a>
+                                </li>
+                            </ul>
                         </div>
                 </section>
             <Shoppingcart />
