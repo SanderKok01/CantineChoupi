@@ -1,18 +1,34 @@
-$white: #ffffff;
-$black: #000000;
-$shadow: #333;
+// General colors
+$color__white: #ffffff;
+$color__black: #000000;
+$color__shadow: #333;
 
 // Navigation Colors
-$nav__background: #262626;
-$nav__font_color: #ffffff;
-$nav__link_hover_color: #2581DC;
+$color__background: #262626;
+$color__link_hover_color: #2581DC;
 
-// Shopping cart
-$nav__primary: #6394F8;
-$nav__light: #ABB0BE;
+// Main colors
+$color__primary: #6394F8;
+$color__danger: #db2f2f;
+$color__warning: #e0c633;
+$color__success: #68f863;
+$color__success--light: #63f8c6;
+$color__light: #ABB0BE;
 
+// Button
+$colors__button: (
+  white: $color__white,
+  black: $color__black,
+  primary: $color__primary,
+  danger: $color__danger,
+  warning: $color__warning,
+  success: $color__success,
+  success--light: $color__success--light
+);
+
+// Export
 :export {
-  white: $white;
-  black: $black;
-  shadow: $shadow;
+  color__white: $color__white;
+  color__black: $color__black;
+  color__shadow: $color__shadow;
 }

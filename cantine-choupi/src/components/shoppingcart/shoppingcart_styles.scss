@@ -1,17 +1,17 @@
 @import "../../styles/_main.scss";
 
 .lighter-text {
-  color: $white;
+  color: $color__white;
 }
 
 .main-color-text {
-  color: $nav__primary;
+  color: $color__primary;
 }
 
 .badge {
     background-color: #6394F8;
     border-radius: 10px;
-    color: $white;
+    color: $color__white;
     display: inline-block;
     font-size: 12px;
     line-height: 1;
@@ -24,7 +24,7 @@
 .shopping-cart {
   margin: 20px 0;
   float: right;
-  background: $nav__background;
+  background: $color__background;
   width: 320px;
   position: relative;
   border-radius: 3px;
@@ -57,20 +57,20 @@
       display: block;
       padding-top: 10px;
       font-size: 16px;
-      color: $white;
+      color: $color__white;
     }
     
     .item-price {
-      color: $nav__primary;
+      color: $color__primary;
       margin-right: 8px;
     }
     
     .item-quantity {
-      color: $white;
+      color: $color__white;
     }
 
     .item-amount {
-      color: $nav__primary;
+      color: $color__primary;
     }
   }
 }
@@ -84,7 +84,7 @@
     width: 0;
     position: absolute;
     pointer-events: none;
-    border-bottom-color: $white;
+    border-bottom-color: $color__white;
     border-width: 8px;
     margin-left: -8px;
 }
@@ -97,8 +97,8 @@
 }
 
 .button {
-  background: $nav__primary;
-  color:$white;
+  background: $color__primary;
+  color: $color__white;
   text-align: center;
   padding: 12px;
   text-decoration: none;
@@ -108,7 +108,7 @@
   margin: 25px 0 15px 0;
   
   &:hover {
-    background: lighten($nav__primary, 3%);
+    background: lighten($color__primary, 3%);
   }
 }
 

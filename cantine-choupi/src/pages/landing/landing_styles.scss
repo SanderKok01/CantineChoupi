@@ -5,10 +5,10 @@
   background-image: url("../../images/landing/background.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  box-shadow: 0 -10px 20px 20px $shadow;
+  box-shadow: 0 -10px 20px 20px $color__shadow;
 
   &__title {
-    color: $white;
+    color: $color__white;
     font-size: 9rem;
     margin: 0;
     position: relative;
@@ -28,7 +28,7 @@
   &__icon {
     @include icon();
 
-    color: $white;
+    color: $color__white;
     margin-top: 67.5vh;
   }
 }
@@ -57,7 +57,7 @@
   &__icon {
     @include icon();
 
-    color: $black;
+    color: $color__black;
     margin-top: -7.5vh;
   }
 }
@@ -87,9 +87,9 @@
     }
 
     & .each-fade {
-      -webkit-box-shadow: inset 0 0 30px 10px $black;
-      -moz-box-shadow: inset 0 0 30px 10px $black;
-      box-shadow: inset 0 0 30px 10px $black;
+      -webkit-box-shadow: inset 0 0 30px 10px $color__black;
+      -moz-box-shadow: inset 0 0 30px 10px $color__black;
+      box-shadow: inset 0 0 30px 10px $color__black;
       border: 5px solid black;
       background-color: #808080;
     }
@@ -102,10 +102,10 @@
     position: relative;
     left: -25%;
     top: 16px;
-    background-color: $white;
-    -webkit-box-shadow: 0 0 25px 2.5px rgba($black, 0.75);
-    -moz-box-shadow: 0 0 25px 2.5px rgba($black, 0.75);
-    box-shadow: 0 0 25px 2.5px rgba($black, 0.75);
+    background-color: $color__white;
+    -webkit-box-shadow: 0 0 25px 2.5px rgba($color__black, 0.75);
+    -moz-box-shadow: 0 0 25px 2.5px rgba($color__black, 0.75);
+    box-shadow: 0 0 25px 2.5px rgba($color__black, 0.75);
 
     &-container {
       width: fit-content;
@@ -127,7 +127,7 @@
 
     &-title {
       font-family: $font__Indie_Flower;
-      color: $white;
+      color: $color__white;
       font-size: 4rem;
       position: relative;
       top: 50px;
@@ -135,7 +135,7 @@
 
     &-description {
       font-family: $font__Handlee;
-      color: $white;
+      color: $color__white;
       font-size: 1.5rem;
     }
   }
@@ -173,7 +173,7 @@
   &__icon {
     @include icon();
 
-    color: $black;
+    color: $color__black;
     margin-top: -7.5vh;
   }
 }
@@ -187,8 +187,8 @@
       width: 25vw;
 
       & .react-slideshow-wrapper.slide {
-        border: 2px solid $black;
-        box-shadow: inset 0 0 30px 10px $black;
+        border: 2px solid $color__black;
+        box-shadow: inset 0 0 30px 10px $color__black;
         background-color: #808080;
       }
 
@@ -229,7 +229,7 @@
   &__icon {
     @include icon();
 
-    color: $black;
+    color: $color__black;
     margin-top: 45vh;
   }
 
