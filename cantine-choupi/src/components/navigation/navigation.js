@@ -3,6 +3,7 @@ import "./navigation_styles.scss";
 
 import Shoppingcart from '../shoppingcart/shoppingcart';
 import { GiHamburger } from 'react-icons/gi';
+import { FiShoppingCart } from 'react-icons/fi';
 import { Link } from 'react-scroll';
 
 class Navigation extends React.Component {
@@ -11,11 +12,23 @@ class Navigation extends React.Component {
 
     this.openNav = this.openNav.bind(this);
     this.closeNav = this.closeNav.bind(this);
+    this.showShoppingCart = this.showShoppingCart.bind(this);
+    this.hideShoppingCart = this.hideShoppingCart.bind(this);
+    this.checkToHide = this.checkToHide.bind(this);
 
     this.state = {
-      navClass: "is_closed"
+      navClass: "is_closed",
+      shoppingCart: {
+        isShown: false,
+        iconShown: false,
+        click: this.showShoppingCart
+      }
     };
   };
+
+  componentDidMount() {
+    this.checkToHide();
+  }
 
   openNav() {
     this.setState({
@@ -27,6 +40,38 @@ class Navigation extends React.Component {
     this.setState({
       navClass: "is_closed"
     });
+  };
+
+  // ShoppingCart functions
+  showShoppingCart() {
+    this.setState({
+      shoppingCart: {
+        ...this.state.shoppingCart,
+        isShown: true,
+        click: this.hideShoppingCart
+      }
+    });
+  };
+
+  hideShoppingCart() {
+    this.setState({
+      shoppingCart: {
+        ...this.state.shoppingCart,
+        isShown: false,
+        click: this.showShoppingCart
+      }
+    });
+  };
+
+  checkToHide() {
+    if (window.localStorage.getItem('shoppingcart_items')) {
+      this.setState({
+        shoppingCart: {
+          ...this.state.shoppingCart,
+          iconShown: true
+        }
+      });
+    };
   };
 
   render() {
@@ -41,6 +86,13 @@ class Navigation extends React.Component {
           <Link smooth={ true } duration={ 500 } to="categories" className="nav__link">Categoriën</Link>
           <Link smooth={ true } duration={ 500 } to="categories" className="nav__link"></Link>
         </nav>
+        {
+          this.state.shoppingCart.iconShown ?
+          <FiShoppingCart className="shoppingcart-btn" onClick={ this.state.shoppingCart.click } /> : null
+        }
+        {
+          this.state.shoppingCart.isShown ? <Shoppingcart /> : null
+        }
       </React.Fragment>
     );
   }

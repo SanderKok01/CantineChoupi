@@ -73,6 +73,22 @@
   padding: 5px;
 }
 
+.shoppingcart-btn {
+  cursor: pointer;
+  color: $color__white;
+  background-color: $color__primary;
+  width: 70px;
+  height: 70px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin: 15px;
+  z-index: 100;
+  border-radius: 15px;
+  border: 2px solid $color__white;
+  padding: 10px;
+}
+
 .is_open {
   width: 300px;
 }
