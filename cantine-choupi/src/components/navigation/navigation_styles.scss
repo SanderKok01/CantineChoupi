@@ -4,7 +4,7 @@
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 101;
+  z-index: 102;
   top: 0;
   right: 0;
   background-color: $color__black;
@@ -95,4 +95,15 @@
 
 .is_closed {
   width: 0;
+}
+
+.shopping-cart-total-products {
+  position: fixed;
+  bottom: 65px;
+  right: 5px;
+  background-color: $color__danger;
+  color: $color__white;
+  padding: 5px;
+  border-radius: 50%;
+  z-index: 101;
 }

@@ -74,21 +74,38 @@ class Navigation extends React.Component {
     };
   };
 
+  getTotalAmount() {
+    let amount = 0;
+    let all = JSON.parse(window.localStorage.getItem('shoppingcart_items'));
+    all.map((item, index) => {
+      return amount += item.amount;
+    });
+
+    return amount;
+  }
+
   render() {
     return (
       <React.Fragment>
         <GiHamburger className="openbtn" onClick={ this.openNav }>&#9776;</GiHamburger>
         <nav className={ `nav ${ this.state.navClass }` }>
           <span className="close" onClick={ this.closeNav }>&times;</span>
-          <Link smooth={ true } duration={ 500 } to="intro" className="nav__link nav__brand">Cantine Choupi</Link>
-          <Link smooth={ true } duration={ 500 } to="dishes" className="nav__link">Onze Producten</Link>
-          <Link smooth={ true } duration={ 500 } to="about-us" className="nav__link">Over Ons</Link>
-          <Link smooth={ true } duration={ 500 } to="categories" className="nav__link">Categoriën</Link>
-          <Link smooth={ true } duration={ 500 } to="categories" className="nav__link"></Link>
+          <Link smooth={ true } duration={ 500 } to="intro" className="nav__link nav__brand" onClick={ this.closeNav }>Cantine Choupi</Link>
+          <Link smooth={ true } duration={ 500 } to="dishes" className="nav__link" onClick={ this.closeNav }>Onze Producten</Link>
+          <Link smooth={ true } duration={ 500 } to="about-us" className="nav__link" onClick={ this.closeNav }>Over Ons</Link>
+          <Link smooth={ true } duration={ 500 } to="categories" className="nav__link" onClick={ this.closeNav }>Categoriën</Link>
         </nav>
         {
-          this.state.shoppingCart.iconShown ?
-          <FiShoppingCart className="shoppingcart-btn" onClick={ this.state.shoppingCart.click } /> : null
+          this.state.shoppingCart.iconShown ? (
+            <React.Fragment>
+              {
+                this.state.shoppingCart.isShown ? null : (
+                  <div className="shopping-cart-total-products">{ this.getTotalAmount() }</div>
+                )
+              }
+              <FiShoppingCart className="shoppingcart-btn" onClick={ this.state.shoppingCart.click } />
+            </React.Fragment>
+          ) : null
         }
         {
           this.state.shoppingCart.isShown ? <Shoppingcart /> : null
