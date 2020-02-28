@@ -35,13 +35,29 @@ class Shoppingcart extends React.Component {
   };
 
   // To increase the amount of a product
-  increaseProductAmount(product_id) {
-    console.log(product_id);
+  increaseProductAmount(index_of_item) {
+    let items = JSON.parse(window.localStorage.getItem('shoppingcart_items'));
+    let item = items[index_of_item];
+    item.amount++;
+
+    window.localStorage.setItem('shoppingcart_items', JSON.stringify(items));
+
+    this.setState({
+      items: items
+    });
   };
 
   // To decrease the amount of a product
-  decreaseProductAmount(product_id) {
-    console.log(product_id);
+  decreaseProductAmount(index_of_item) {
+    let items = JSON.parse(window.localStorage.getItem('shoppingcart_items'));
+    let item = items[index_of_item];
+    item.amount--;
+
+    window.localStorage.setItem('shoppingcart_items', JSON.stringify(items));
+
+    this.setState({
+      items: items
+    });
   };
 
   getProducts() {
@@ -76,7 +92,7 @@ class Shoppingcart extends React.Component {
       return total += (price * item.amount);
     });
 
-    return total;
+    return Math.round((total + Number.EPSILON) * 100) / 100;
   }
 
   render() {
@@ -96,11 +112,15 @@ class Shoppingcart extends React.Component {
               : this.state.items.length === 0 ? null
               : this.state.items.map((item, index) => {
                 return (
-                  <li className="clearfix" key={ index }>
-                    <span className="item item-name">Name: <span className="pauper">{ item.product.name }</span></span>
-                    <span className="item item-price">Price: <span className="pauper">{ `€${item.product.price}` }</span></span>
-                    <span className="item item-quantity">Quantity: <span className="pauper item-amount">{ item.amount }</span></span>
-                  </li>
+                  <div className="shopping-cart__item-wrapper" key={ index }>
+                    <button className="shopping-cart__button shopping-cart__button--increase" onClick={ () => { this.increaseProductAmount(index) } }>+</button>
+                    <button className="shopping-cart__button shopping-cart__button--decrease" onClick={ () => { this.decreaseProductAmount(index) } }>-</button>
+                    <li className="clearfix">
+                      <span className="item item-name">Name: <span className="pauper">{ item.product.name }</span></span>
+                      <span className="item item-price">Price: <span className="pauper">{ `€${item.product.price}` }</span></span>
+                      <span className="item item-quantity">Quantity: <span className="pauper item-amount">{ item.amount }</span></span>
+                    </li>
+                  </div>
                 )
               })
             }
