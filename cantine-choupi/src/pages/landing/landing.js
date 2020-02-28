@@ -7,19 +7,10 @@ import { Slide } from 'react-slideshow-image';
 import { TiArrowDownOutline, TiArrowUpOutline } from "react-icons/ti";
 import { Link } from 'react-scroll';
 import Card from '../../components/card/card';
-
-const longLorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium distinctio reiciendis odio nisi esse dicta vero? Ipsa ratione adipisci quisquam. Sunt aliquam accusantium unde dicta tenetur sed veritatis itaque id? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt beatae quasi quae, ex aperiam excepturi enim perspiciatis quo in mollitia incidunt, ipsa vel dolorum voluptate molestiae laborum eum esse! Officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi dignissimos explicabo inventore quia consectetur minus ad magni, blanditiis consequatur, incidunt eos itaque commodi tempore. Tempore minima ducimus fuga nemo dignissimos! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium distinctio reiciendis odio nisi esse dicta vero? Ipsa ratione adipisci quisquam. Sunt aliquam accusantium unde dicta tenetur sed veritatis itaque id? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt beatae quasi quae, ex aperiam excepturi enim perspiciatis quo in mollitia incidunt, ipsa vel dolorum voluptate molestiae laborum eum esse! Officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi dignissimos explicabo inventore quia consectetur minus ad magni, blanditiis consequatur, incidunt eos itaque commodi tempore. Tempore minima ducimus fuga nemo dignissimos! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium distinctio reiciendis odio nisi esse dicta vero? Ipsa ratione adipisci quisquam. Sunt aliquam accusantium unde dicta tenetur sed veritatis itaque id? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt beatae quasi quae, ex aperiam excepturi enim perspiciatis quo in mollitia incidunt, ipsa vel dolorum voluptate molestiae laborum eum esse!";
-const shortLorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium distinctio reiciendis odio nisi esse dicta vero? Ipsa ratione adipisci quisquam. Sunt aliquam accusantium unde dicta tenetur sed veritatis itaque id? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt beatae quasi quae, ex aperiam excepturi enim perspiciatis quo in mollitia incidunt, ipsa vel dolorum voluptate molestiae laborum eum esse! Officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi dignissimos explicabo inventore quia consectetur minus ad magni, blanditiis consequatur, incidunt eos itaque commodi tempore. Tempore minima ducimus fuga nemo dignissimos! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium distinctio reiciendis odio nisi esse dicta vero? Ipsa ratione adipisci quisquam. Sunt aliquam accusantium unde dicta tenetur sed veritatis itaque id? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt beatae quasi quae, ex aperiam excepturi enim perspiciatis quo in mollitia incidunt, ipsa vel dolorum voluptate molestiae laborum eum esse! Officiis! Lorem ipsum dolor sit amet consectetur adipisicing elit.";
+import { LoremIpsum } from 'react-lorem-ipsum';
 
 const carouselProperties = {
   duration: 5000,
-  transitionDuration: 500,
-  infinite: true,
-  indicators: true
-}
-
-const categoriesCarouselProperties = {
-  duration: 10000,
   transitionDuration: 500,
   infinite: true,
   indicators: true
@@ -128,9 +119,9 @@ class Landing extends React.Component {
         <section name="about-us" className="about-us">
           <h3 className="about-us__title">Over Ons</h3>
           <div className="about-us__description-wrapper">
-            <p className="about-us__description about-us__description--long">{ longLorem }</p>
-            <p className="about-us__description">{ shortLorem }</p>
-            <p className="about-us__description about-us__description--long">{ longLorem }</p>
+            <p className="about-us__description about-us__description--long"><LoremIpsum p={3} /></p>
+            <p className="about-us__description"><LoremIpsum p={2} /></p>
+            <p className="about-us__description about-us__description--long"><LoremIpsum p={3} /></p>
           </div>
         </section>
         <Link to="categories" smooth={ true } duration={ 500 }>
@@ -146,21 +137,21 @@ class Landing extends React.Component {
                     {
                       cat.products.length === 0 ? null : (
                         <Card key={ index } title={ cat.name } wrapper=".categories__wrapper">
-                          <div className="categories__carousel__wrapper">
-                            <Slide { ...categoriesCarouselProperties }>
+                          <div className="categories__items">
                               {
                                 cat.products.map((prod, index) => {
                                   return (
-                                    <div className="categories__carousel__each-fade" key={ index }>
-                                      <div className="categories__carousel__text-wrapper">
-                                        <h2 className="categories__carousel__text-title">{ prod.name }</h2>
-                                        <p className="categories__carousel__text-description">{ prod.description }</p>
+                                    <div className="categories__item">
+                                      <span>{ prod.name }</span>
+                                      <img height="50px" src={ prod.image_url } alt={ prod.name } />
+                                      <div className="categories__container">
+                                        <button className="categories__button categories__button--increase">+</button>
+                                        <button className="categories__button categories__button--decrease">-</button>
                                       </div>
                                     </div>
                                   );
                                 })
                               }
-                            </Slide>
                           </div>
                         </Card>
                       )
