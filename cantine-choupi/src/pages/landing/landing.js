@@ -22,6 +22,7 @@ class Landing extends React.Component {
 
     this.setData = this.setData.bind(this);
     this.getCategories = this.getCategories.bind(this);
+    this.addToCart = this.addToCart.bind(this);
 
     this.state = {
       dataRes: [],
@@ -59,6 +60,46 @@ class Landing extends React.Component {
       .catch(console.error);
     } catch (err) {
       console.error(err);
+    };
+  };
+
+  addToCart(prod) {
+    let resultGiven = false;
+    let items = JSON.parse(window.localStorage.getItem('shoppingcart_items'));
+
+    if (!items) {
+      items = [];
+      const obj = {
+        amount: 1,
+        product: prod
+      };
+
+      items.push(obj);
+      window.localStorage.setItem('shoppingcart_items', JSON.stringify(items));
+
+      window.updateCart(true);
+    } else {
+      items.forEach((item, index) => {
+        // If item already exists in localStorage
+        if (item.product.id === prod.id) {
+          item.amount++;
+          resultGiven = true;
+        };
+      });
+
+      if (resultGiven) {
+        window.localStorage.setItem('shoppingcart_items', JSON.stringify(items));
+        window.updateCart(true);
+      } else {
+        const obj = {
+          amount: 1,
+          product: prod
+        };
+
+        items.push(obj);
+        window.localStorage.setItem('shoppingcart_items', JSON.stringify(items));
+        window.updateCart(true);
+      };
     };
   };
 
@@ -141,12 +182,11 @@ class Landing extends React.Component {
                               {
                                 cat.products.map((prod, index) => {
                                   return (
-                                    <div className="categories__item">
+                                    <div className="categories__item" key={ index }>
                                       <span>{ prod.name }</span>
                                       <img height="50px" src={ prod.image_url } alt={ prod.name } />
                                       <div className="categories__container">
-                                        <button className="categories__button categories__button--increase">+</button>
-                                        <button className="categories__button categories__button--decrease">-</button>
+                                        <button className="categories__button categories__button--increase" onClick={ () => { this.addToCart(prod) } }>+</button>
                                       </div>
                                     </div>
                                   );

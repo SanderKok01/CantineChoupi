@@ -15,6 +15,9 @@ class Navigation extends React.Component {
     this.showShoppingCart = this.showShoppingCart.bind(this);
     this.hideShoppingCart = this.hideShoppingCart.bind(this);
     this.checkToHide = this.checkToHide.bind(this);
+    this.updateCart = this.updateCart.bind(this);
+
+    window.updateCart = this.updateCart;
 
     this.state = {
       navClass: "is_closed",
@@ -22,12 +25,14 @@ class Navigation extends React.Component {
         isShown: false,
         iconShown: false,
         click: this.showShoppingCart
-      }
+      },
+      dynamicState: false
     };
   };
 
   componentDidMount() {
     this.checkToHide();
+    this.updateCart();
   }
 
   openNav() {
@@ -49,7 +54,8 @@ class Navigation extends React.Component {
         ...this.state.shoppingCart,
         isShown: true,
         click: this.hideShoppingCart
-      }
+      },
+      dynamicState: true
     });
   };
 
@@ -59,8 +65,21 @@ class Navigation extends React.Component {
         ...this.state.shoppingCart,
         isShown: false,
         click: this.showShoppingCart
-      }
+      },
+      dynamicState: false
     });
+  };
+
+  updateCart(bool) {
+    if (bool) {
+      this.setState({
+        dynamicState: true
+      });
+    } else {
+      this.setState({
+        dynamicState: false
+      });
+    };
   };
 
   checkToHide() {
@@ -77,12 +96,16 @@ class Navigation extends React.Component {
   getTotalAmount() {
     let amount = 0;
     let all = JSON.parse(window.localStorage.getItem('shoppingcart_items'));
-    all.map((item, index) => {
-      return amount += item.amount;
-    });
+    if (!all) {
+      return;
+    } else {
+      all.map((item, index) => {
+        return amount += item.amount;
+      });
 
-    return amount;
-  }
+      return amount;
+    };
+  };
 
   render() {
     return (
@@ -96,7 +119,7 @@ class Navigation extends React.Component {
           <Link smooth={ true } duration={ 500 } to="categories" className="nav__link" onClick={ this.closeNav }>Categoriën</Link>
         </nav>
         {
-          this.state.shoppingCart.iconShown ? (
+          this.state.shoppingCart.iconShown || this.state.dynamicState ? (
             <React.Fragment>
               {
                 this.state.shoppingCart.isShown ? null : (
