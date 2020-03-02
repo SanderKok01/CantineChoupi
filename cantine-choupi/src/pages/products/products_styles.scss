@@ -1,0 +1,40 @@
+@import "../../styles/_main.scss";
+
+.products {
+  height: 100vh;
+
+  &__select {
+    width: 300px;
+    top: 20px;
+    left: 20px;
+  }
+
+  &__card-column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+  }
+
+  @media screen and (max-width: 600px) {
+    &__card-column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__card {
+    box-shadow: 0 4px 8px 0 rgba($color__black, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: $color__white;
+    margin: 10px 0;
+  }
+}
+
+.big-text {
+  font-size: 10rem;
+  text-align: center;
+  position: relative;
+  top: 10%;
+}
