@@ -4,7 +4,9 @@ import "./navigation_styles.scss";
 import Shoppingcart from '../shoppingcart/shoppingcart';
 import { GiHamburger } from 'react-icons/gi';
 import { FiShoppingCart } from 'react-icons/fi';
+import { IoIosUndo } from 'react-icons/io';
 import { Link } from 'react-scroll';
+import { Link as HrefLink } from 'react-router-dom';
 
 class Navigation extends React.Component {
   constructor(props) {
@@ -108,34 +110,62 @@ class Navigation extends React.Component {
   };
 
   render() {
-    return (
-      <React.Fragment>
-        <GiHamburger className="openbtn" onClick={ this.openNav }>&#9776;</GiHamburger>
-        <nav className={ `nav ${ this.state.navClass }` }>
-          <span className="close" onClick={ this.closeNav }>&times;</span>
-          <Link smooth={ true } duration={ 500 } to="intro" className="nav__link nav__brand" onClick={ this.closeNav }>Cantine Choupi</Link>
-          <Link smooth={ true } duration={ 500 } to="dishes" className="nav__link" onClick={ this.closeNav }>Onze Producten</Link>
-          <Link smooth={ true } duration={ 500 } to="about-us" className="nav__link" onClick={ this.closeNav }>Over Ons</Link>
-          <Link smooth={ true } duration={ 500 } to="categories" className="nav__link" onClick={ this.closeNav }>Categoriën</Link>
-        </nav>
-        {
-          this.state.shoppingCart.iconShown || this.state.dynamicState ? (
-            <React.Fragment>
-              {
-                this.state.shoppingCart.isShown ? null : (
-                  <div className="shopping-cart-total-products">{ this.getTotalAmount() }</div>
-                )
-              }
-              <FiShoppingCart className="shoppingcart-btn" onClick={ this.state.shoppingCart.click } />
-            </React.Fragment>
-          ) : null
-        }
-        {
-          this.state.shoppingCart.isShown ? <Shoppingcart /> : null
-        }
-      </React.Fragment>
-    );
-  }
-}
+    if (this.props.type === 'landing') {
+      return (
+        <React.Fragment>
+          <GiHamburger className="openbtn" onClick={ this.openNav }>&#9776;</GiHamburger>
+          <nav className={ `nav ${ this.state.navClass }` }>
+            <span className="close" onClick={ this.closeNav }>&times;</span>
+            <Link smooth={ true } duration={ 500 } to="intro" className="nav__link nav__brand" onClick={ this.closeNav }>Cantine Choupi</Link>
+            <Link smooth={ true } duration={ 500 } to="dishes" className="nav__link" onClick={ this.closeNav }>Onze Producten</Link>
+            <Link smooth={ true } duration={ 500 } to="about-us" className="nav__link" onClick={ this.closeNav }>Over Ons</Link>
+            <Link smooth={ true } duration={ 500 } to="categories" className="nav__link" onClick={ this.closeNav }>Categoriën</Link>
+          </nav>
+          {
+            this.state.shoppingCart.iconShown || this.state.dynamicState ? (
+              <React.Fragment>
+                {
+                  this.state.shoppingCart.isShown ? null : (
+                    <div className="shopping-cart-total-products">{ this.getTotalAmount() }</div>
+                  )
+                }
+                <FiShoppingCart className="shoppingcart-btn" onClick={ this.state.shoppingCart.click } />
+              </React.Fragment>
+            ) : null
+          }
+          {
+            this.state.shoppingCart.isShown ? <Shoppingcart /> : null
+          }
+        </React.Fragment>
+      );
+    } else if (this.props.type === 'products') {
+      return (
+        <React.Fragment>
+          <GiHamburger className="openbtn" onClick={ this.openNav }>&#9776;</GiHamburger>
+          <nav className={ `nav ${ this.state.navClass }` }>
+            <span className="close" onClick={ this.closeNav }>&times;</span>
+            <HrefLink smooth={ true } duration={ 500 } to="/" className="nav__link nav__brand" onClick={ this.closeNav }><IoIosUndo /> Back</HrefLink>
+            <Link smooth={ true } duration={ 500 } to="dishes" className="nav__link" onClick={ this.closeNav }>Categories</Link>
+          </nav>
+          {
+            this.state.shoppingCart.iconShown || this.state.dynamicState ? (
+              <React.Fragment>
+                {
+                  this.state.shoppingCart.isShown ? null : (
+                    <div className="shopping-cart-total-products">{ this.getTotalAmount() }</div>
+                  )
+                }
+                <FiShoppingCart className="shoppingcart-btn" onClick={ this.state.shoppingCart.click } />
+              </React.Fragment>
+            ) : null
+          }
+          {
+            this.state.shoppingCart.isShown ? <Shoppingcart /> : null
+          }
+        </React.Fragment>
+      );
+    }
+  };
+};
 
 export default Navigation;

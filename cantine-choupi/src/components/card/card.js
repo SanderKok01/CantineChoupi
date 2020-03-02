@@ -82,7 +82,7 @@ class Card extends React.Component {
         <div className={ this.state.classes.card }>
           <div className={ this.state.classes.card_inner } onClick={ this.disabled ? null : this.state.click }>
             <span>{ this.props.title }</span>
-            <GoInfo className="fa" />
+            <GoInfo className="fa info__icon" />
           </div>
           <div className="card__expander">
             <FaTimes className="fa" onClick={ this.close } />

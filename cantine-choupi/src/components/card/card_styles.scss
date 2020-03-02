@@ -89,8 +89,10 @@ body {
     }
     
     .fa {
-      width: 100%;
+      width: fit-content;
       margin-top: .25em;
+      display: block;
+      margin: 0 auto;
     }
   }
 
@@ -220,4 +222,8 @@ body {
   .card__expander {
     width: calc(200% + 30px);
   }
+}
+
+.info__icon {
+  cursor: url("../../images/cursors/help.png"), auto;
 }

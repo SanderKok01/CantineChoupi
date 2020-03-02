@@ -4,10 +4,11 @@ import "./landing_styles.scss";
 import Call from "../../helpers/call";
 
 import { Slide } from 'react-slideshow-image';
-import { TiArrowDownOutline, TiArrowUpOutline } from "react-icons/ti";
+import { TiArrowDownOutline, TiArrowUpOutline, TiInfoLarge } from "react-icons/ti";
 import { Link } from 'react-scroll';
 import Card from '../../components/card/card';
 import { LoremIpsum } from 'react-lorem-ipsum';
+import { Link as HrefLink } from 'react-router-dom';
 
 const carouselProperties = {
   duration: 5000,
@@ -113,7 +114,12 @@ class Landing extends React.Component {
           </Link>
         </section>
         <section className="dishes" name="dishes">
-          <p className="dishes__title">Onze Producten</p>
+          <p className="dishes__title">
+            <span>Onze Producten</span>
+            <HrefLink to="/products">
+              <TiInfoLarge className="dishes__info-icon" />
+            </HrefLink>
+          </p>
           <div className="carousel__wrapper">
               {
                 this.state.dataRes.length === 0 ? null : (

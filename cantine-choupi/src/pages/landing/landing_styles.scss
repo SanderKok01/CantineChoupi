@@ -60,6 +60,17 @@
     color: $color__black;
     margin-top: -7.5vh;
   }
+
+  &__info-icon {
+    cursor: pointer;
+    vertical-align: sub;
+    border: 7.5px solid;
+    border-radius: 50%;
+    position: relative;
+    top: -5px;
+    left: 20px;
+    color: $color__main-text;
+  }
 }
 
 .carousel {
