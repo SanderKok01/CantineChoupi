@@ -69,52 +69,22 @@ class Products extends React.Component {
     return (
       <div className="products">
         <Select isSearchable className="products__select" onChange={ this.handleChange } options={ this.state.select.options } />
-        {/* {
-          this.state.catRes.length !== 0 && this.state.select.hasSelectedValue ? this.state.catRes.map((cat, index) => {
-            if (cat.id === this.state.select.currentSelected.value) {
-              return (
-                <div key={ index }>
-                  {
-                    cat.products.forEach((prod, index2) => {
-                      console.log(cat.products);
-                      return (
-                        <div class="products__card-column" key={ index2 }>
-                          <div class="products__card">
-                            <h3>{ prod.name }</h3>
-                            <p>{ prod.description }</p>
-                            <p>€{ prod.price }</p>
-                          </div>
-                        </div>
-                      )
-                    })
-                  }
+        {
+          this.state.catRes.length !== 0 && this.state.select.currentSelected.value ?
+          this.state.catRes.find((cat) => cat.id === this.state.select.currentSelected.value).products.map((prod, index2) => {
+            return (
+              <div class="products__card-column" key={ index2 }>
+                <div class="products__card">
+                  <h3>{ prod.name }</h3>
+                  <p>{ prod.description }</p>
+                  <p>€{ prod.price }</p>
                 </div>
-              );
-            } else {
-              console.log("AAAAAAAAAAAAAAAAAA");
-            }
-            return true;
+              </div>
+            );
           }) : (
             <p className="big-text">Select an option</p>
           )
-        } */}
-            {
-              this.state.catRes.length !== 0 ? this.state.catRes.forEach((cat, index) => {
-                if (cat.products.length !== 0 && cat.id === this.state.select.currentSelected.value) {
-                  this.state.catRes[index].products.map((prod, index2) => (
-                    <div class="products__card-column" key={ index2 }>
-                      <div class="products__card">
-                        <h3>{ prod.name }</h3>
-                        <p>{ prod.description }</p>
-                        <p>€{ prod.price }</p>
-                      </div>
-                    </div>
-                  ));
-                } else {
-                  return null;
-                };
-              }) : null
-            }
+        }
       </div>
     );
   };
