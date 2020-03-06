@@ -1,0 +1,130 @@
+@import "../../styles/_main.scss";
+
+.nav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 102;
+  top: 0;
+  right: 0;
+  background-color: $color__black;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+
+  &__link {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    cursor: pointer;
+    width: fit-content;
+    font-family: $font__Spartan;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: $color__white;
+      transition: width 300ms;
+      margin: 0 auto;
+    }
+
+    &:hover {
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &:hover {
+      color: $color__white;
+    }
+  }
+
+  & .close {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    cursor: pointer;
+
+    &:hover {
+      color: $color__white;
+    }
+  }
+}
+
+.openbtn {
+  cursor: pointer;
+  color: $color__black;
+  background-color: $color__white;
+  width: 70px;
+  height: 70px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  margin: 15px;
+  z-index: 100;
+  border-radius: 15px;
+  border: 2px solid $color__black;
+  padding: 5px;
+}
+
+.shoppingcart-btn {
+  cursor: pointer;
+  color: $color__white;
+  background-color: $color__primary;
+  width: 70px;
+  height: 70px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin: 15px;
+  z-index: 100;
+  border-radius: 15px;
+  border: 2px solid $color__white;
+  padding: 10px;
+}
+
+.is_open {
+  width: 300px;
+}
+
+.is_closed {
+  width: 0;
+}
+
+.shopping-cart-total-products {
+  position: fixed;
+  bottom: 65px;
+  right: 5px;
+  background-color: $color__danger;
+  color: $color__white;
+  padding: 5px;
+  border-radius: 50%;
+  z-index: 101;
+  min-width: 30px;
+  text-align: center;
+}
+
+.products-info-icon {
+  color: #818181;
+  font-size: 25px;
+  display: inline-block;
+  vertical-align: middle;
+  border: 2px solid #818181;
+  border-radius: 50%;
+  margin-left: 5px;
+  position: relative;
+  bottom: 10px;
+  transition: all 0.5s;
+
+  &:hover {
+    color: $color__white;
+    border-color: $color__white;
+  }
+}

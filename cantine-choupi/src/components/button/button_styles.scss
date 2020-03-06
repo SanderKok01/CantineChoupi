@@ -1,17 +1,39 @@
-@import "../../styles/_vars.scss";
+@import "../../styles/_main.scss";
 
-$colors: (
-  white: $white,
-  black: $black,
-  red: #ff0000
-);
-
-@each $name, $value in $colors {
-  .button_#{$name} {
+@each $name, $value in $colors__button {
+  .button__wrapper--#{$name} {
     padding: 10px 20px;
+    border: 2px solid #{$value};
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
 
-    &_text {
-      color: #{$value};
+    &::before {
+      content: '';
+      width: 0;
+      height: 100%;
+      display: block;
+      background-color: #{$value};
+      opacity: 35%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: width 200ms;
+    }
+
+    &:hover {
+      &::before {
+        width: 100%;
+      }
     }
   }
+
+  .button__text--#{$name} {
+    color: #{$value};
+    font-weight: bold;
+    font-family: $font__Patrick_Hand;
+    font-size: 20px;
+    position: relative;
+  }
 }
+

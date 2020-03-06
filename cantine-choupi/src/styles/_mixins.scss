@@ -1,0 +1,22 @@
+@import "./_fonts.scss";
+
+@mixin title {
+  font-size: 4rem;
+  font-family: $font__Handlee;
+  display: block;
+  text-decoration: overline underline;
+}
+
+@mixin icon {
+  margin: 0 auto;
+  position: relative;
+  font-size: 4rem;
+  display: block;
+  animation: MoveUpDown 2s ease-in-out infinite;
+  cursor: pointer;
+}
+
+:export {
+  title: title();
+  icon: icon();
+}
