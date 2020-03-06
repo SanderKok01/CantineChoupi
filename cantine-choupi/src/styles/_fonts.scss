@@ -10,9 +10,22 @@ $font__Indie_Flower: 'Indie Flower';
 @import url('https://fonts.googleapis.com/css?family=Patrick+Hand&display=swap');
 $font__Patrick_Hand: 'Patrick Hand';
 
+@import url('https://fonts.googleapis.com/css?family=Spartan&display=swap');
+$font__Spartan: 'Spartan', sans-serif;
+
+@mixin font__Google_Sans {
+  @font-face {
+    font-family: 'Google Sans';
+    src: url("../local_fonts/GoogleSans-Medium.ttf") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
 :export {
   Handlee: $font__Handlee;
   Kalam: $font__Kalam;
   Indie_Flower: $font__Indie_Flower;
   Patrick_Hand: $font__Patrick_Hand;
+  Spartan: $font__Spartan;
 }

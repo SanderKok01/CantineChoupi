@@ -21,6 +21,7 @@
     transition: 0.3s;
     cursor: pointer;
     width: fit-content;
+    font-family: $font__Spartan;
 
     &::after {
       content: '';
@@ -108,4 +109,22 @@
   z-index: 101;
   min-width: 30px;
   text-align: center;
+}
+
+.products-info-icon {
+  color: #818181;
+  font-size: 25px;
+  display: inline-block;
+  vertical-align: middle;
+  border: 2px solid #818181;
+  border-radius: 50%;
+  margin-left: 5px;
+  position: relative;
+  bottom: 10px;
+  transition: all 0.5s;
+
+  &:hover {
+    color: $color__white;
+    border-color: $color__white;
+  }
 }

@@ -7,6 +7,7 @@ import { FiShoppingCart } from 'react-icons/fi';
 import { IoIosUndo } from 'react-icons/io';
 import { Link } from 'react-scroll';
 import { Link as HrefLink } from 'react-router-dom';
+import { TiInfoLarge } from "react-icons/ti";
 
 class Navigation extends React.Component {
   constructor(props) {
@@ -117,7 +118,12 @@ class Navigation extends React.Component {
           <nav className={ `nav ${ this.state.navClass }` }>
             <span className="close" onClick={ this.closeNav }>&times;</span>
             <Link smooth={ true } duration={ 500 } to="intro" className="nav__link nav__brand" onClick={ this.closeNav }>Cantine Choupi</Link>
-            <Link smooth={ true } duration={ 500 } to="dishes" className="nav__link" onClick={ this.closeNav }>Onze Producten</Link>
+            <Link smooth={ true } duration={ 500 } to="dishes" className="nav__link" onClick={ this.closeNav }>
+              <span>Onze Producten</span>
+              <HrefLink to="/products">
+                <TiInfoLarge className="products-info-icon info__icon" />
+              </HrefLink>
+            </Link>
             <Link smooth={ true } duration={ 500 } to="about-us" className="nav__link" onClick={ this.closeNav }>Over Ons</Link>
             <Link smooth={ true } duration={ 500 } to="categories" className="nav__link" onClick={ this.closeNav }>Categoriën</Link>
           </nav>

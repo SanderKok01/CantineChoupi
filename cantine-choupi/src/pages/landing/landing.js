@@ -117,7 +117,7 @@ class Landing extends React.Component {
           <p className="dishes__title">
             <span>Onze Producten</span>
             <HrefLink to="/products">
-              <TiInfoLarge className="dishes__info-icon" />
+              <TiInfoLarge className="dishes__info-icon info__icon" />
             </HrefLink>
           </p>
           <div className="carousel__wrapper">
@@ -157,7 +157,11 @@ class Landing extends React.Component {
                   </Slide>
                 )
               }
-            <p className="dishes__all-products">Geïnteresseerd? Klik <a className="dishes__link" href="##">hier</a> voor alle producten.</p>
+            <p className="dishes__all-products">
+              <span>Geïnteresseerd? Klik </span>
+              <HrefLink to="/products" className="dishes__link">hier</HrefLink>
+              <span> voor alle producten.</span>
+            </p>
           </div>
         </section>
         <Link to="about-us" smooth={ true } duration={ 500 }>

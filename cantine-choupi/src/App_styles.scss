@@ -26,3 +26,11 @@ body {
     border-left: 2px solid $color__black;
   }
 }
+
+.info__icon {
+  cursor: url("./images/cursors/help.png"), auto;
+}
+
+.buy__icon {
+  cursor: url("./images/cursors/buy.png"), auto;
+}

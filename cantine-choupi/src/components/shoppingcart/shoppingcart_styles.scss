@@ -91,6 +91,8 @@
     }
 
     .item {
+      @include font__Google_Sans();
+
       width: 100%;
       display: block;
       border-bottom: 2px dotted white;
