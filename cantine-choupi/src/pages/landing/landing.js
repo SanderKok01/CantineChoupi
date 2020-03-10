@@ -81,7 +81,6 @@ class Landing extends React.Component {
       window.updateCart(true);
     } else {
       items.forEach((item, index) => {
-        // If item already exists in localStorage
         if (item.product.id === prod.id) {
           item.amount++;
           resultGiven = true;
@@ -124,7 +123,7 @@ class Landing extends React.Component {
               {
                 this.state.dataRes.length === 0 ? null : (
                   <Slide { ...carouselProperties }>
-                    <div className="each-fade">
+                    <div className="carousel--fade">
                       <div className="carousel__image-container image-container">
                         <img className="carousel__image" src={ this.state.dataRes[0].image_url } alt={ this.state.dataRes[0].name } />
                       </div>
@@ -134,7 +133,7 @@ class Landing extends React.Component {
                         <p className="carousel__text-description">Klik <a className="dishes__link" href="##">hier</a> voor meer informatie</p>
                       </div>
                     </div>
-                    <div className="each-fade">
+                    <div className="carousel--fade">
                       <div className="carousel__image-container image-container">
                         <img className="carousel__image" src={ this.state.dataRes[12].image_url } alt={ this.state.dataRes[12].name } />
                       </div>
@@ -144,7 +143,7 @@ class Landing extends React.Component {
                         <p className="carousel__text-description">Klik <a className="dishes__link" href="##">hier</a> voor meer informatie</p>
                       </div>
                     </div>
-                    <div className="each-fade">
+                    <div className="carousel--fade">
                       <div className="carousel__image-container image-container">
                         <img className="carousel__image" src={ this.state.dataRes[7].image_url } alt={ this.state.dataRes[7].name } />
                       </div>
@@ -158,9 +157,7 @@ class Landing extends React.Component {
                 )
               }
             <p className="dishes__all-products">
-              <span>Geïnteresseerd? Klik </span>
-              <HrefLink to="/products" className="dishes__link">hier</HrefLink>
-              <span> voor alle producten.</span>
+              <span>Geïnteresseerd? Klik <HrefLink to="/products" className="dishes__link">hier</HrefLink> voor alle producten.</span>
             </p>
           </div>
         </section>
