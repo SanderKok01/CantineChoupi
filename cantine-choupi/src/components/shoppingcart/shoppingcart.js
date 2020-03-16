@@ -90,7 +90,7 @@ class Shoppingcart extends React.Component {
 
   getProducts() {
     try {
-      Call('products')
+      Call.products()
       .then(res => {
         this.setState({
           productRes: res

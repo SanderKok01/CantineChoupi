@@ -2,7 +2,7 @@ import React from 'react';
 import "./login_styles.scss";
 import Input from '../../components/input/input';
 import Button from '../../components/button/button';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { IoIosUndo } from 'react-icons/io';
 import Send from '../../helpers/send';
 import ErrorPage from '../errors/error';

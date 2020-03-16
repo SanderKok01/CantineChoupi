@@ -38,7 +38,7 @@ class Landing extends React.Component {
 
   getCategories() {
     try {
-      Call('categoriesWithProducts')
+      Call.categoriesWithProducts()
       .then(res => {
         this.setState({
           categoriesRes: res
@@ -52,7 +52,7 @@ class Landing extends React.Component {
 
   setData() {
     try {
-      Call('products')
+      Call.products()
       .then(res => {
         this.setState({
           dataRes: res

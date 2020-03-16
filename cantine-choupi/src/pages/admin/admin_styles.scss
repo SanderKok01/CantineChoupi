@@ -16,5 +16,46 @@
       color: $color__white;
       font-size: 25px;
     }
+
+    &-icon {
+      vertical-align: top;
+      display: inline-block;
+      margin: 2.5px;
+    }
+
+    &-item {
+      cursor: pointer;
+      display: block;
+      padding: 5px 0;
+    }
+
+    &-sign-out {
+      color: $color__white;
+      font-size: 25px;
+      display: block;
+      position: fixed;
+      bottom: 0;
+      padding: 10px;
+      cursor: pointer;
+
+      &-icon {
+        vertical-align: middle;
+      }
+    }
+  }
+
+  &-body {
+    width: 85vw;
+    height: 100vh;
+    float: right;
+    overflow: hidden;
+
+    &__inner {
+      background-color: $color__primary;
+      width: 90%;
+      height: 82.5%;
+      margin: 80px;
+      border: 2px solid $color__white;
+    }
   }
 }

@@ -32,7 +32,7 @@ class Products extends React.Component {
 
   fetchCategories() {
     try {
-      Call('categoriesWithProducts')
+      Call.catWithProd()
       .then(res => {
         res.forEach(cat => {
           if (cat.products.length !== 0) {
