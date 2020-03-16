@@ -14,7 +14,8 @@ class Button extends React.Component {
       throw new Error("Color prop is required");
     } else {
       if (this.props.color === "white" || this.props.color === "black" || this.props.color === "primary" || this.props.color === "danger" ||
-      this.props.color === "warning" || this.props.color === "success" || this.props.color === "success-light") {
+      this.props.color === "warning" || this.props.color === "success" || this.props.color === "success-light" ||
+      this.props.color === "success-dark") {
         this.setState({
           color: this.props.color
         });
@@ -31,7 +32,7 @@ class Button extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <button className={ `button__wrapper--${this.state.color}` }>
+        <button className={ this.props.classes ? `button__wrapper--${this.state.color} ${this.props.classes}` : `button__wrapper--${this.state.color}` } { ...this.props }>
           <span className={ `button__text--${this.state.color}` }>{ this.props.children }</span>
         </button>
       </React.Fragment>

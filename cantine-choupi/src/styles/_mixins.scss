@@ -16,6 +16,24 @@
   cursor: pointer;
 }
 
+@mixin checkoutWrapper($hasBorderBottom) {
+  @if ($hasBorderBottom == "true") {
+    border-bottom: 2px solid $color__white;
+  }
+  width: 90%;
+  margin: 0 auto;
+  font-size: 1.5rem;
+}
+
+@mixin checkoutLabel() {
+  color: $color__white;
+}
+
+@mixin checkoutValue() {
+  color: $color__danger;
+  float: right;
+}
+
 :export {
   title: title();
   icon: icon();

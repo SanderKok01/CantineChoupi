@@ -131,7 +131,7 @@ class Landing extends React.Component {
                       <div className="carousel__text-wrapper">
                         <h2 className="carousel__text-title">{ this.state.dataRes[0].name }</h2>
                         <p className="carousel__text-description">{ this.state.dataRes[0].description }</p>
-                        <p className="carousel__text-description">Klik <a className="dishes__link" href="##">hier</a> voor meer informatie</p>
+                        <p className="carousel__text-description">Klik <HrefLink to="/products" className="dishes__link">hier</HrefLink> voor meer informatie</p>
                       </div>
                     </div>
                     <div className="each-fade">
@@ -141,7 +141,7 @@ class Landing extends React.Component {
                       <div className="carousel__text-wrapper">
                         <h2 className="carousel__text-title">{ this.state.dataRes[12].name }</h2>
                         <p className="carousel__text-description">{ this.state.dataRes[12].description }</p>
-                        <p className="carousel__text-description">Klik <a className="dishes__link" href="##">hier</a> voor meer informatie</p>
+                        <p className="carousel__text-description">Klik <HrefLink to="/products" className="dishes__link">hier</HrefLink> voor meer informatie</p>
                       </div>
                     </div>
                     <div className="each-fade">
@@ -151,7 +151,7 @@ class Landing extends React.Component {
                       <div className="carousel__text-wrapper">
                         <h2 className="carousel__text-title">{ this.state.dataRes[7].name }</h2>
                         <p className="carousel__text-description">{ this.state.dataRes[7].description }</p>
-                        <p className="carousel__text-description">Klik <a className="dishes__link" href="##">hier</a> voor meer informatie</p>
+                        <p className="carousel__text-description">Klik <HrefLink to="/products" className="dishes__link">hier</HrefLink> voor meer informatie</p>
                       </div>
                     </div>
                   </Slide>

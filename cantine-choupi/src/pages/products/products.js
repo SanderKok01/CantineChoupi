@@ -121,7 +121,7 @@ class Products extends React.Component {
                       <div className="products__card-context-wrapper">
                         <span className="products__card-title">{ prod.name }</span>
                         <span className="products__card-description">{ prod.description }</span>
-                        <span className="products__card-price">{ `€${prod.price}` }</span>
+                        <span className="products__card-price">{ `$${prod.price}` }</span>
                       </div>
                       <div className="products__card-button-wrapper">
                         <button className="products__card-button buy__icon" onClick={ () => { this.addToCart(prod) } }>Add this item to the cart</button>

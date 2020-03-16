@@ -1,0 +1,99 @@
+@import "../../styles/_main.scss";
+
+.notfound {
+  max-width: 410px;
+  width: 100%;
+  text-align: center;
+
+  &__wrapper {
+    position: relative;
+    height: 100vh;
+    background-image: url("../../images/errors/404_bg.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    & .notfound {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    & .notfound__code {
+      height: 280px;
+      position: relative;
+      z-index: -1;
+
+      &-title {
+        font-family: 'Google Sans', sans-serif;
+        font-size: 230px;
+        margin: 0px;
+        font-weight: 900;
+        position: absolute;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+        background: url('../../images/errors/404_text.jpg') no-repeat;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: cover;
+        background-position: center;
+        -webkit-text-stroke: 5px $color__white;
+        width: 100vw;
+        text-shadow: 0 0 100px $color__white;
+      }
+
+      &-subtitle {
+        font-family: 'Google Sans', sans-serif;
+        color: #000;
+        font-size: 24px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-top: 0;
+        color: $color__white;
+      }
+
+      &-description {
+        font-family: 'Google Sans', sans-serif;
+        color: #000;
+        font-size: 14px;
+        font-weight: 400;
+        margin-bottom: 20px;
+        margin-top: 0px;
+        color: $color__white;
+      }
+    }
+  }
+
+  &__button {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-image: url("../../images/errors/404_button.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 40px;
+    border: 2px solid $color__white;
+    color: $color__white;
+    font-weight: 700;
+    -webkit-box-shadow: 0px 0px 15px 0 $color__white;
+    box-shadow: 0px 0px 15px 0 $color__white;
+    cursor: pointer;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+    .notfound .notfound__404 {
+      height: 142px;
+    }
+    .notfound .notfound__404-title {
+      font-size: 112px;
+    }
+}

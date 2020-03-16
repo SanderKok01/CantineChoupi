@@ -1,0 +1,44 @@
+@import "../../styles/_main.scss";
+
+.login {
+  &__input {
+    &-wrapper {
+      display: block;
+      margin: 20px 0;
+    }
+  }
+
+  &__form {
+    height: 50%;
+    width: 50%;
+    position: relative;
+    top: 25%;
+    left: 25%;
+    border: 2px solid $color__white;
+    background-color: $color__primary;
+    box-shadow: 0px 0px 20px 0px $color__white;
+    padding: 50px;
+  }
+
+  &__wrapper {
+    height: 100vh;
+    background-color: $color__background;
+  }
+
+  &__button {
+    margin: 20px 0;
+  }
+
+  &__return-link {
+    color: $color__white;
+    position: absolute;
+    font-size: 20px;
+    text-decoration: none;
+    top: 5px;
+    left: 5px;
+  }
+
+  &__icon {
+    margin-right: 5px;
+  }
+}

@@ -170,6 +170,17 @@ class Navigation extends React.Component {
           }
         </React.Fragment>
       );
+    } else if (this.props.type === "checkout") {
+      return (
+        <React.Fragment>
+          <GiHamburger className="openbtn" onClick={ this.openNav }>&#9776;</GiHamburger>
+          <nav className={ `nav ${ this.state.navClass }` }>
+            <span className="close" onClick={ this.closeNav }>&times;</span>
+            <HrefLink smooth={ true } duration={ 500 } to="/" className="nav__link nav__brand" onClick={ this.closeNav }><IoIosUndo /> Back</HrefLink>
+            <HrefLink smooth={ true } duration={ 500 } to="products" className="nav__link" onClick={ this.closeNav }>Products</HrefLink>
+          </nav>
+        </React.Fragment>
+      );
     }
   };
 };

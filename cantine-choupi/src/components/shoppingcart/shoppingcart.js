@@ -3,6 +3,7 @@ import "./shoppingcart_styles.scss";
 import Button from '../button/button';
 import Call from '../../helpers/call';
 import { GoTrashcan } from 'react-icons/go';
+import { Link } from 'react-router-dom';
 
 class Shoppingcart extends React.Component {
   constructor(props) {
@@ -158,7 +159,7 @@ class Shoppingcart extends React.Component {
           <div className="shopping-cart-header">
             <div className="shopping-cart-total">
               <span className="lighter-text">Total:</span>
-              <span className="main-color-text">{ `€${ this.getTotalPrice() }` }</span>
+              <span className="main-color-text">{ `$${ this.getTotalPrice() }` }</span>
             </div>
             <span className="shopping-cart-amount">{ this.getTotalAmount() }<span className="lighter-text"> products</span></span>
           </div>
@@ -173,16 +174,18 @@ class Shoppingcart extends React.Component {
                     <button className="shopping-cart__button shopping-cart__button--decrease" onClick={ () => { this.decreaseProductAmount(index) } }>-</button>
                     <li className="clearfix">
                       <span className="item item-name">Name: <span className="pauper">{ item.product.name }</span></span>
-                      <span className="item item-price">Price: <span className="pauper">{ `€${item.product.price}` }</span></span>
+                      <span className="item item-price">Price: <span className="pauper">{ `$${item.product.price}` }</span></span>
                       <span className="item item-quantity">Quantity: <span className="pauper item-amount">{ this.getTotalProductAmount(index) }</span></span>
-                      <span className="item item-total-price lighter-text">Subtotal: <span className="pauper item-amount">€{ this.getTotalProductPrice(index) }</span></span>
+                      <span className="item item-total-price lighter-text">Subtotal: <span className="pauper item-amount">${ this.getTotalProductPrice(index) }</span></span>
                     </li>
                   </div>
                 )
               })
             }
           </ul>
-          <Button color="white">Checkout</Button>
+          <Link to="/checkout">
+            <Button color="white">Checkout</Button>
+          </Link>
           <GoTrashcan className="remove_icon" onClick={ this.clearCart } />
         </div>
       </React.Fragment>

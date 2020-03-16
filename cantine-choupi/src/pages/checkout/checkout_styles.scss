@@ -1,0 +1,226 @@
+@import "../../styles/_main.scss";
+
+.checkout {
+  height: 100vh;
+  background-color: $color__background;
+
+  &__title {
+    color: $color__white;
+    text-align: center;
+    margin: 0;
+    padding: 20px 0;
+    font-size: 4rem;
+  }
+
+  &__items {
+    width: 75%;
+    height: 75vh;
+    margin: 0 auto;
+    border: 2px solid $color__white;
+    max-height: 75vh;
+    overflow-y: scroll;
+    background-color: $color__primary;
+
+    &::-webkit-scrollbar {
+      width: 12.5px;
+    }
+
+    &::-webkit-scrollbar-button {
+      display: none;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $color__primary;
+      border-left: 2px solid $color__white;
+      border-right: 2px solid $color__white;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: $color__link_hover_color;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: $color__white;
+      border-left: 2px solid $color__white;
+    }
+  }
+
+  &__item {
+    &-name {
+      @include checkoutWrapper("false");
+
+      border-bottom: 2px dotted $color__white;
+
+      &-label {
+        @include checkoutLabel();
+
+      }
+
+      &-value {
+        @include checkoutValue();
+
+      }
+    }
+
+    &-price {
+      @include checkoutWrapper("false");
+
+      border-bottom: 2px dotted $color__white;
+
+      &-label {
+        @include checkoutLabel();
+
+      }
+
+      &-value {
+        @include checkoutValue();
+
+      }
+    }
+
+    &-quantity {
+      border-bottom: 4px solid $color__white;
+
+      @include checkoutWrapper("true");
+
+      margin-bottom: 20px;
+
+      &-label {
+        @include checkoutLabel();
+
+      }
+
+      &-value {
+        @include checkoutValue();
+
+      }
+    }
+
+    &:last-child {
+      .checkout__item-quantity {
+        border-bottom: none;
+      }
+    }
+  }
+
+  &__button {
+    margin-right: 20px;
+
+    &-wrapper {
+      width: 75%;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+  }
+
+  &__total {
+    border: 2px solid $color__white;
+    border-top: none;
+    padding: 7.5px;
+    display: inline-block;
+    float: right;
+    color: $color__danger;
+    background-color: $color__primary;
+
+    &-label {
+      color: $color__white;
+    }
+
+    &-wrapper {
+      width: 75%;
+      margin: 0 auto;
+    }
+  }
+}
+
+.checkout-form {
+  height: 75vh;
+  width: 75vw;
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  border: 2px solid $color__white;
+  overflow-y: hidden;
+  max-height: 75vh;
+  background-color: $color__primary;
+
+  &__input-wrapper {
+    margin: 50px 20px 0 20px;
+  }
+
+  &__textarea-wrapper {
+    margin: 0 20px;
+    position: relative;
+    top: -29px;
+  }
+
+  &__submit-button {
+    display: block;
+    position: relative;
+    margin: 20px;
+  }
+
+  &__title {
+    color: $color__white;
+    margin: 0;
+    text-align: center;
+    font-size: 4rem;
+    position: relative;
+    top: 20px;
+  }
+
+  &__select {
+    @include font__Google_Sans();
+
+    font-family: 'Google Sans', sans-serif;
+    padding: 10px;
+    background-color: transparent;
+    border-radius: 10px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    font-size: 18px;
+    transition: all 200ms;
+
+    &-option {
+      background-color: $color__black;
+      border: 2px solid $color__danger;
+    }
+
+    &-wrapper {
+      display: block;
+      width: 200px;
+      position: relative;
+      left: 20px;
+      top: -175px;
+    }
+
+    &-label {
+      display: block;
+      transition: all 200ms;
+    }
+
+    &-required {
+      position: relative;
+      left: 45px;
+      font-size: 12px;
+      color: $color__danger;
+    }
+  }
+
+  &__payment {
+    &-wrapper {
+      width: 400px;
+      position: relative;
+      top: -75px;
+    }
+
+    &-buttons-wrapper {
+      width: 300px;
+      height: 265px;
+      display: block;
+      position: relative;
+      top: -175px;
+      margin: 15px;
+    }
+  }
+}

@@ -13,8 +13,12 @@
       width: 0;
       height: 100%;
       display: block;
-      background-color: #{$value};
-      opacity: 35%;
+      @if ($name == white) {
+        background-color: #{$value};
+        opacity: 50%;
+      } @else {
+        background-color: darken($value, 15%);
+      }
       position: absolute;
       top: 0;
       left: 0;
@@ -34,6 +38,7 @@
     font-family: $font__Patrick_Hand;
     font-size: 20px;
     position: relative;
+    z-index: 1;
   }
 }
 

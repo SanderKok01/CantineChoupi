@@ -1,0 +1,51 @@
+@import "../../styles/_main.scss";
+
+@each $name, $value in $colors__input {
+  .input--#{$name} {
+    @include font__Google_Sans();
+
+    background-color: transparent;
+    border: 2px solid #{$value};
+    border-radius: 10px;
+    color: #{$value};
+    padding: 10px 20px;
+    position: relative;
+    transition: all 200ms;
+
+    &::placeholder {
+      @include font__Google_Sans();
+
+      font-family: 'Google Sans';
+      color: #{$value};
+    }
+  }
+
+  .input__label--#{$name} {
+    @include font__Google_Sans();
+
+    font-family: 'Google Sans';
+    color: #{$value};
+    position: relative;
+    text-align: left;
+    display: block;
+    width: fit-content;
+    transition: all 200ms;
+  }
+
+  .input-required {
+    @include font__Google_Sans();
+
+    font-family: 'Google Sans';
+    color: $color__danger;
+    font-size: 12px;
+    width: fit-content;
+    position: inherit;
+    float: right;
+  }
+
+  .input-wrapper {
+    display: inline-block;
+    width: fit-content;
+    height: fit-content;
+  }
+}

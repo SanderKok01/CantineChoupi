@@ -15,6 +15,7 @@ $color__success: #68f863;
 $color__success--light: #63f8c6;
 $color__success--dark: #1f941b;
 $color__light: #ABB0BE;
+$color__main-text: #333A45;
 
 // Button
 $colors__button: (
@@ -24,11 +25,21 @@ $colors__button: (
   danger: $color__danger,
   warning: $color__warning,
   success: $color__success,
-  success--light: $color__success--light,
-  success--dark: $color__success--dark
+  success-light: $color__success--light,
+  success-dark: $color__success--dark
 );
 
-$color__main-text: #333A45;
+// Input
+$colors__input: (
+  white: $color__white,
+  black: $color__black,
+  primary: $color__primary,
+  danger: $color__danger,
+  warning: $color__warning,
+  success: $color__success,
+  success-light: $color__success--light,
+  success-dark: $color__success--dark
+);
 
 // Export
 :export {
