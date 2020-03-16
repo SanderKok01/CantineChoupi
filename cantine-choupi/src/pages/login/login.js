@@ -23,7 +23,6 @@ class Login extends React.Component {
         username: "",
         password: ""
       },
-      loginResult: null,
       error: {
         hasError: false,
         code: "401"
@@ -31,7 +30,7 @@ class Login extends React.Component {
     };
   };
 
-  tryLogin(event) {
+  async tryLogin(event) {
     event.preventDefault();
 
     if (!this.state.validate.username || !this.state.validate.password) {
@@ -44,31 +43,11 @@ class Login extends React.Component {
     };
 
     try {
-      Send.Login(values)
-      .then(res => {
-        console.log(res);
-        this.setState({
-          loginResult: res
-        });
-        if (res.token) {
-          alert("Gelukt!");
-          return <Redirect to={{
-            pathname: "/admin",
-            state: this.state.result
-          }} />;
-        } else {
-          console.error(res);
-          return alert("Login niet gelukt!");
-        }
-      }).catch(err => {
-        this.setState({
-          error: {
-            ...this.state.error,
-            hasError: true
-          }
-        });
-        return console.error(err);
-      });
+      await Send.Login(values);
+      if (window.loginToken) {
+        window.sessionStorage.setItem('token', window.loginToken);
+        return window.location.href = "/admin";
+      };
     } catch (err) {
       this.setState({
         error: {
@@ -131,35 +110,41 @@ class Login extends React.Component {
   };
 
   render() {
-    return (
-      <React.Fragment>
-        {
-          this.state.error.hasError ? (
-            <ErrorPage code={ this.state.error.code } />
-          ) : (
-          <div className="login__wrapper">
-            <Link to="/" className="login__return-link">
-              <IoIosUndo className="login__icon" />
-              <span>Terug</span>
-            </Link>
-            <form method="POST" onSubmit={ this.tryLogin } className="login__form">
-              <Input name="username" label="Gebruiksnaam" onChange={ this.handleChange }
-                color={ this.state.validate.username ? "success" : "danger" } mandatory data-val="name" type="text"
-                wrapperClasses="login__input-wrapper" value={ this.state.values.username }
-              />
+    if (window.loginToken) {
+      return (
+        <ErrorPage code="403" />
+      )
+    } else {
+      return (
+        <React.Fragment>
+          {
+            this.state.error.hasError ? (
+              <ErrorPage code={ this.state.error.code } />
+            ) : (
+            <div className="login__wrapper">
+              <Link to="/" className="login__return-link">
+                <IoIosUndo className="login__icon" />
+                <span>Terug</span>
+              </Link>
+              <form method="POST" onSubmit={ this.tryLogin } className="login__form">
+                <Input name="username" label="Gebruiksnaam" onChange={ this.handleChange }
+                  color={ this.state.validate.username ? "success" : "danger" } mandatory data-val="name" type="text"
+                  wrapperClasses="login__input-wrapper" value={ this.state.values.username }
+                />
 
-              <Input name="password" label="Wachtwoord" onChange={ this.handleChange }
-                color={ this.state.validate.password ? "success" : "danger" } mandatory data-val="password" type="password"
-                wrapperClasses="login__input-wrapper" value={ this.state.values.password }
-              />
+                <Input name="password" label="Wachtwoord" onChange={ this.handleChange }
+                  color={ this.state.validate.password ? "success" : "danger" } mandatory data-val="password" type="password"
+                  wrapperClasses="login__input-wrapper" value={ this.state.values.password }
+                />
 
-              <Button color="white" classes="login__button" type="submit">Login</Button>
-            </form>
-          </div>
-          )
-        }
-      </React.Fragment>
-    );
+                <Button color="white" classes="login__button" type="submit">Login</Button>
+              </form>
+            </div>
+            )
+          }
+        </React.Fragment>
+      );
+    }
   };
 };
 

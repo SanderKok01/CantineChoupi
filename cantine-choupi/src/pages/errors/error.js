@@ -14,6 +14,11 @@ const ErrorPage = (props) => {
         title = "Pagina niet gevonden";
         desc = "De pagina die je wilt bezoeken is niet gevonden. Deze pagina kan verplaatst of tijdelijk niet beschikbaar zijn.";
       break;
+      case "403":
+        code = "401";
+        title = "Permissie geweigerd";
+        desc = "De pagina die je wilt bezoeken heeft je geweigerd.";
+      break;
       case "401":
         code = "401";
         title = "Niet toegestaan";
@@ -44,6 +49,8 @@ const ErrorPage = (props) => {
             <Link className="notfound__button" to="/">Op naar huis!</Link>
           ) : props.code === "401" ? (
             <span className="notfound__button" onClick={ () => { window.location.reload() } }>Opnieuw proberen?</span>
+          ) : props.code === "403" ? (
+            <Link className="notfound__button" to="/">Op naar huis!</Link>
           ) : (
             <Link className="notfound__button" to="/">Op naar huis!</Link>
           )

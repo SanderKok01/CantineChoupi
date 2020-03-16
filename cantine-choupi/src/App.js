@@ -9,6 +9,7 @@ import Checkout from './pages/checkout/checkout';
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 import ErrorPage from './pages/errors/error';
 import Login from './pages/login/login';
+import AdminPage from './pages/admin/admin';
 
 function App() {
   return (
@@ -30,6 +31,13 @@ function App() {
           <Route exact path="/login">
             <Login />
           </Route>
+          {
+            window.sessionStorage.getItem('token') ? (
+            <Route exact path="/admin">
+              <AdminPage />
+            </Route>
+            ) : null
+          }
           <Route>
             <ErrorPage code="404" />
           </Route>

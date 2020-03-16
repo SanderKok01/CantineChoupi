@@ -24,7 +24,8 @@ const Order = async function(recieved_data) {
   .then((res) => res.json())
   .then((data => {
     return data;
-  }));
+  }))
+  .catch(console.error);
 };
 
 const Login = async function(recieved_data) {
@@ -34,15 +35,14 @@ const Login = async function(recieved_data) {
       'Accept' : 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({
-      name: recieved_data.name,
-      password: recieved_data.password
-    })
+    body: JSON.stringify(recieved_data)
   })
   .then((res) => res.json())
   .then((data => {
+    window.loginToken = data.token;
     return data;
-  }));
+  }))
+  .catch(console.error);
 };
 
 class Send extends React.Component {
