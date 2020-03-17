@@ -1,0 +1,55 @@
+@import "../../styles/_main.scss";
+
+.table {
+  border-spacing: 0;
+
+  &__null {
+    font-style: italic;
+    opacity: 0.5;
+  }
+
+  &__paid {
+    color: $color__success;
+
+    &-not {
+      color: $color__danger;
+    }
+  }
+
+  &__icon {
+    color: inherit;
+    display: inline-block;
+    vertical-align: middle;
+
+    &--option {
+      text-align: center;
+      cursor: pointer;
+      transition: color 300ms;
+
+      &:hover {
+        color: $color__white;
+      }
+    }
+  }
+
+  &__th {
+    background-color: $color__white;
+    padding: 5px 40px;
+
+    &--option {
+      padding: 5px 10px;
+    }
+  }
+
+  &__td {
+    padding: 5px;
+    color: $color__black;
+    border-left: 2px solid $color__white;
+
+    &--option {
+      @extend .table__td;
+
+      text-align: center;
+    }
+  }
+}

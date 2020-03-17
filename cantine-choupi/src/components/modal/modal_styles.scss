@@ -1,0 +1,15 @@
+@import "../../styles/_main.scss";
+
+.modal {
+  transition: all 300ms;
+
+  &-shown {
+    display: block;
+    opacity: 1;
+  }
+
+  &-hidden {
+    display: none;
+    opacity: 0;
+  }
+}

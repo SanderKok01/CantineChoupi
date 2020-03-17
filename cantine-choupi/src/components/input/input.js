@@ -8,7 +8,7 @@ class Input extends React.Component {
     }
 
     if (!this.props.type) {
-      throw new Error("Input requires type");
+      throw new Error("<Input /> requires type");
     }
 
     if (!this.props.mandatory) {

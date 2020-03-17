@@ -38,7 +38,7 @@ class Landing extends React.Component {
 
   getCategories() {
     try {
-      Call.categoriesWithProducts()
+      Call.catWithProd()
       .then(res => {
         this.setState({
           categoriesRes: res

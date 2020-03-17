@@ -8,7 +8,7 @@ const catWithProd = async function() {
 
 // Public
 const products = async function() {
-  const res = await fetch(`https://competa-api.dev.competa.com/api/categoriesWithProducts`);
+  const res = await fetch(`https://competa-api.dev.competa.com/api/products`);
   return await res.json();
 }
 
